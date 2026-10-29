@@ -1,9 +1,12 @@
+DROP TABLE IF EXISTS friendships, workout_logs, user_skills, skill_prerequisites, users, skills;
+
 CREATE TABLE skills (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE,
     category VARCHAR(20) NOT NULL,
     difficulty INTEGER NOT NULL,
-    xp_value INTEGER NOT NULL
+    xp_value INTEGER NOT NULL,
+    measure VARCHAR(10) NOT NULL CHECK (measure IN ('reps', 'seconds'))
 );
 
 CREATE TABLE users (
